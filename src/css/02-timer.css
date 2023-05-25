@@ -1,0 +1,22 @@
+.timer{
+    display: flex;
+    font-size: 30px;
+    margin-top: 10px;
+    margin-left: -19px;
+}
+
+.field{
+    margin-left: 10px;
+
+}
+
+.value{
+    display: flex;
+    font-size: 50px;
+    margin-left: 10px;
+}
+
+.label{
+    font-size: 20px;
+    margin-left: 15px;
+}
