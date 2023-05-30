@@ -53,11 +53,11 @@ const options = {
     }, 1000);
   }
 
-  function updateTimer({days, hours, minutes, seconds}){
+  function updateTimer({ days, hours, minutes, seconds }){
     if(deltaTime < 0){
         clearInterval(timerID);
-        startButton.disabled = true;
-        dateField.disabled = true;
+        startButton.disabled = false;
+        dateField.disabled = false;
         return;
     }
 
@@ -68,9 +68,8 @@ const options = {
   }
 
   function addLeadingZero(value){
-    return String(value).padStart(2, '0');
+    return String(value).padStart(2, "0");
   }
-
 
   function convertMs(ms) {
 
@@ -79,13 +78,15 @@ const options = {
     const hour = minute * 60;
     const day = hour * 24;
   
-    const days = Math.floor(ms / day);
-    const hours = Math.floor((ms % day) / hour);
-    const minutes = Math.floor(((ms % day) % hour) / minute);
-    const seconds = Math.floor((((ms % day) % hour) % minute) / second);
+    const days = addLeadingZero(Math.floor(ms / day));
+    const hours = addLeadingZero(Math.floor((ms % day) / hour));
+    const minutes = addLeadingZero(Math.floor(((ms % day) % hour) / minute));
+    const seconds = addLeadingZero(Math.floor((((ms % day) % hour) % minute) / second));
   
     return { days, hours, minutes, seconds };
   }
+
+  
 
 
 
